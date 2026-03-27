@@ -1,0 +1,26 @@
+# 4 Stages - Not optimized (Node.js)
+# Stage 1: Dependencies
+FROM node:18 AS dependencies
+WORKDIR /app
+COPY package.json .
+RUN npm install
+
+# Stage 2: Builder
+FROM node:18 AS builder
+WORKDIR /app
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY . .
+
+# Stage 3: Tester
+FROM node:18 AS tester
+WORKDIR /app
+COPY --from=builder /app /app
+RUN npm test
+
+# Stage 4: Final (runtime)
+FROM node:18
+WORKDIR /app
+COPY --from=tester /app /app
+COPY --from=dependencies /app/node_modules ./node_modules
+EXPOSE 5000
+CMD ["node", "app.js"]

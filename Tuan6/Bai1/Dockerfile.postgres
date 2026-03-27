@@ -1,0 +1,6 @@
+# PostgreSQL with Data Persistence Demo
+FROM postgres:15-alpine
+ENV POSTGRES_DB=myapp
+ENV POSTGRES_USER=admin
+ENV POSTGRES_PASSWORD=password123
+COPY init-db.sql /docker-entrypoint-initdb.d/

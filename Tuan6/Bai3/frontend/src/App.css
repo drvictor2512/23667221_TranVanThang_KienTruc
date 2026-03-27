@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  padding: 12px 24px;
+  border: none;
+  background: #f0f0f0;
+  color: #333;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.nav-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease;
+}
+
+.section h2 {
+  color: #667eea;
+  margin-bottom: 30px;
+  font-size: 1.8em;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  color: #667eea;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+
+.card p {
+  color: #555;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.card strong {
+  color: #333;
+}
+
+.card small {
+  color: #999;
+  font-style: italic;
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+.status.pending {
+  background: #ffc107;
+  color: #000;
+}
+
+.status.completed {
+  background: #28a745;
+  color: white;
+}
+
+.status.assigned {
+  background: #17a2b8;
+  color: white;
+}
+
+.status.refunded {
+  background: #dc3545;
+  color: white;
+}
+
+.footer {
+  background: white;
+  text-align: center;
+  padding: 20px;
+  color: #667eea;
+  font-weight: 500;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.8em;
+  }
+  
+  .nav {
+    flex-direction: column;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-btn {
+    width: 100%;
+  }
+}

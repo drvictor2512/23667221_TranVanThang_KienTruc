@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - JAVA_OPTS=-Xmx256m -Xms128m
+    container_name: db-partitioning-app
+    command: java -jar app.jar
